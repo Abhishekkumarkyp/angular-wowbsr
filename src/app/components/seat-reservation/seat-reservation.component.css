@@ -1,0 +1,24 @@
+.seat {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 5px;
+}
+
+.available {
+  background-color: #28a745;
+  color: white;
+}
+
+.reserved {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Flexbox properties to wrap seats */
+.row {
+  display: flex;
+  justify-content: center; /* Center the seats in each row */
+}

@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <h1 class="text-center">Train Seat Reservation</h1>
+  <div class="row justify-content-center mt-4">
+    <div class="col-md-6">
+      <div class="input-group mb-3">
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Enter number of seats"
+          [(ngModel)]="numSeats"
+          min="1"
+          max="7"
+        />
+        <button class="btn btn-primary" type="button" (click)="reserveSeats()">
+          Reserve
+        </button>
+      </div>
+      <div class="alert alert-danger" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="d-flex flex-wrap justify-content-center">
+        <div
+          class="row"
+          *ngFor="let row of seats | slice : 0 : 80; let i = index"
+        >
+          <div
+            *ngFor="let seat of row"
+            class="seat col-1"
+            [ngClass]="{ available: seat.available, reserved: !seat.available }"
+          >
+            {{ seat.number }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-4">
+    <div class="col-md-6">
+      <h4>Reserved Seats: {{ reservedSeats.join(', ') }}</h4>
+    </div>
+  </div>
+</div>
